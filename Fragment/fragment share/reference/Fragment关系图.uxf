@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>322</y>
+      <w>168</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>FragmentActivity
+--
+FragmentController mFragments
+FragmentContainer mContrainer
+
+
+
+
+--
+onCreate();
+onDestroy();
+...
+onPause();
+onNewIntent();
+onSaveInstanceState
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>574</x>
+      <y>322</y>
+      <w>336</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>FragmentManagerImpl
+--
+FragmentActivity mActivity;
+FragmentContainer mContainer;
+
+ArrayList&lt;Fragment&gt; mActive;
+ArrayList&lt;Fragment&gt; mAdded;
+ArrayList&lt;BackStackRecord&gt; mBackStack;
+--
+attachActivity(activity, container, parent);
+dispatchDestroy();
+...
+dispatchPause();
+noteStateNotSaved
+saveAllState
+ // 创建一个BackStackRcord
+FragmentTransaction beginTransaction(FragmentManagerImpl manager);
+
+*moveToState(fragment, newState, ..., keepActive);*
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>609</x>
+      <y>224</y>
+      <w>154</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>/Abs FragmentManager/
+
+{innerclass
+FragmentManagerImpl
+innerclass}
+{innerclass
+FragmentManagerState
+innerclass}
+ </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>287</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>77</x>
+      <y>490</y>
+      <w>21</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>567</y>
+      <w>175</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>FragmentContainer
+--
+View findViewById(@IdRes int id);
+boolean hasView();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>161</x>
+      <y>322</y>
+      <w>140</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1008</x>
+      <y>238</y>
+      <w>126</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>/Abs FragmentTransaction/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>987</x>
+      <y>322</y>
+      <w>301</w>
+      <h>259</h>
+    </coordinates>
+    <panel_attributes>BackStackRecord
+
+{innerclass
+Op
+innerclass}
+
+--
+FragmentManagerImpl mManager;
+
+Op mHead;
+Op mTail;
+
+--
+BackStackRecord(FragmentManagerImpl manager)
+attachActivity();
+dispatchDestroy();
+...
+ //生命周期
+dispatchPause();
+...
+ //加入回退栈的 addToBackStask
+addToBackStask(name);
+ //在FragmentTransaction.commit的时候触发
+*run(); //最后会调用FragmentManagerImpl的moveToState*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1057</x>
+      <y>252</y>
+      <w>21</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>917</x>
+      <y>238</y>
+      <w>63</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Runnable</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1155</x>
+      <y>238</y>
+      <w>168</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>FragmentManager.BackStackEntry
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>938</x>
+      <y>252</y>
+      <w>105</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;130.0;50.0;130.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1092</x>
+      <y>252</y>
+      <w>147</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>190.0;10.0;190.0;50.0;10.0;50.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1393</x>
+      <y>602</y>
+      <w>175</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Fragment
+--
+static final int INITIALIZING = 0;
+static final int CREATED = 1;
+static final int ACTIVITY_CREATED = 2;
+static final int STOPPED = 3;
+static final int STARTED = 4;
+static final int RESUMED = 5;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1645</x>
+      <y>602</y>
+      <w>154</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>FragmentState
+--
+final String mClassName;
+final int mIndex;
+final int mFragmentId;
+final int mContainerId;
+final String mTag;
+final boolean mRetainInstance;
+final boolean mDetached;
+final Bundle mArguments;
+
+Bundle mSavedFragmentState;
+*Fragment mInstance;*
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1561</x>
+      <y>602</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1680</x>
+      <y>532</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Parcelable</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1708</x>
+      <y>546</y>
+      <w>21</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1092</x>
+      <y>784</y>
+      <w>336</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>static final int INITIALIZING = 0;     // Not yet created.
+static final int CREATED = 1;          // Created.
+static final int ACTIVITY_CREATED = 2; // The activity has finished its creation.
+static final int STOPPED = 3;          // Fully created, not started.
+static final int STARTED = 4;          // Created and started, not resumed.
+static final int RESUMED = 5;          // Created started and resumed.
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1239</x>
+      <y>693</y>
+      <w>224</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;80.0;300.0;80.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1393</x>
+      <y>322</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Op
+--
+Op next;
+Op prev;
+int cmd;
+*Fragment fragment;*
+int enterAnim;
+int exitAnim;
+int popEnterAnim;
+int popExitAnim;
+ArrayList&lt;Fragment&gt; removed;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1281</x>
+      <y>322</y>
+      <w>126</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2023</x>
+      <y>959</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2023</x>
+      <y>987</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2023</x>
+      <y>1015</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2023</x>
+      <y>1043</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1806</x>
+      <y>959</y>
+      <w>336</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>继承 extends
+
+实现 implements
+
+聚合 has-a
+
+ //组合类负责被组合类的生命周期
+组合 contains-a
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1463</x>
+      <y>448</y>
+      <w>21</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>903</x>
+      <y>322</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2184</x>
+      <y>1134</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>金国充
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>287</x>
+      <y>322</y>
+      <w>105</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>FragmentController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>322</y>
+      <w>203</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+</diagram>

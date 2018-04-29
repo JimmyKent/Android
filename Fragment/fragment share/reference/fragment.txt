@@ -1,0 +1,191 @@
+替换片段
+替换片段的步骤与添加片段类似，只不过调用的方法从 add() 改为 replace()。
+
+请谨记，当您执行替换或移除片段等片段事务时，通常最好让用户能够回退并“撤消”更改。 要让用户回退所执行的片段事务，您必须先调用 addToBackStack()，然后再提交 FragmentTransaction。
+
+注：当您移除或替换一个片段并向返回栈添加事务时，系统会停止（而非销毁）移除的片段。 如果用户执行回退操作进行片段恢复，该片段将重新启动。 如果您不向返回栈添加事务，则系统会在您移除或替换片段时将其销毁。
+
+片段替换示例：
+
+// Create fragment and give it an argument specifying the article it should show
+ArticleFragment newFragment = new ArticleFragment();
+Bundle args = new Bundle();
+args.putInt(ArticleFragment.ARG_POSITION, position);
+newFragment.setArguments(args);
+
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+// Replace whatever is in the fragment_container view with this fragment,
+// and add the transaction to the back stack so the user can navigate back
+transaction.replace(R.id.fragment_container, newFragment);
+transaction.addToBackStack(null);
+
+// Commit the transaction
+transaction.commit();
+addToBackStack() 方法使用的可选字符串参数会为事务指定一个唯一的名称。除非您计划使用 FragmentManager.BackStackEntry API 执行高级片段操作，否则并不需要该名称。
+
+
+
+https://developer.android.com/guide/practices/tablets-and-handsets.html#ActionBar
+
+
+How the application responds when a user selects an item from the list depends on whether Fragment B is available in the layout:
+
+If Fragment B is in the layout, Activity A notifies Fragment B to update itself.
+If Fragment B is not in the layout, Activity A starts Activity B (which hosts Fragment B).
+To implement this pattern for your application, it's important that you develop your fragments to be highly compartmentalized. Specifically, you should follow two guidelines:
+
+Do not manipulate one fragment directly from another.
+Keep all code that concerns content in a fragment inside that fragment, rather than putting it in the host activity's code.
+To avoid directly calling one fragment from another, define a callback interface in each fragment class that it can use to deliver events to its host activity, which implements the callback interface. When the activity receives a callback due to an event (such as the user selecting a list item), the activity responds appropriately based on the current fragment configuration.
+
+For example, Activity A from above can handle item selections depending on whether it's using the tablet or handset layout like this:
+
+public class MainActivity extends Activity implements TitlesFragment.OnItemSelectedListener {
+    ...
+
+    /** This is a callback that the list fragment (Fragment A)
+        calls when a list item is selected */
+    public void onItemSelected(int position) {
+        DisplayFragment displayFrag = (DisplayFragment) getFragmentManager()
+                                    .findFragmentById(R.id.display_frag);
+        if (displayFrag == null) {
+            // DisplayFragment (Fragment B) is not in the layout (handset layout),
+            // so start DisplayActivity (Activity B)
+            // and pass it the info about the selected item
+            Intent intent = new Intent(this, DisplayActivity.class);
+            intent.putExtra("position", position);
+            startActivity(intent);
+        } else {
+            // DisplayFragment (Fragment B) is in the layout (tablet layout),
+            // so tell the fragment to update
+            displayFrag.updateContent(position);
+        }
+    }
+}
+When DisplayActivity (Activity B) starts, it reads the data delivered by the Intent and passes it to the DisplayFragment (Fragment B).
+
+If Fragment B needs to deliver a result back to Fragment A (because Activity B was started with startActivityForResult()), then the process works similarly with a callback interface between Fragment B and Activity B. That is, Activity B implements a different callback interface defined by Fragment B. When Activity B receives the callback with a result from the fragment, it sets the result for the activity (with setResult()) and finishes itself. Activity A then receives the result and delivers it to Fragment A.
+
+For a demonstration of this technique for creating different fragment combinations for tablets and handsets, see the updated version of the Honeycomb Gallery sample
+
+
+
+
+
+
+一些函数：
+详细生命周期回调
+状态恢复
+trasation
+
+getChildFragmentManager() Return a private FragmentManager for placing and managing Fragments inside of this Fragment.
+
+getFragmentManager() Return the FragmentManager for interacting with fragments associated with this fragment's activity.
+
+getHost() Return the host object of this fragment.
+
+getResources() Return getActivity().getResources().
+
+getUserVisibleHint()
+
+getView()
+Get the root view for the fragment's layout (the one returned by onCreateView(LayoutInflater, ViewGroup, Bundle)), if provided.
+
+//is系列
+isAdded()
+Return true if the fragment is currently added to its activity.
+final boolean	isDetached()
+Return true if the fragment has been explicitly detached from the UI.
+final boolean	isHidden()
+Return true if the fragment has been hidden.
+final boolean	isInLayout()
+Return true if the layout is included as part of an activity view hierarchy via the <fragment> tag.
+final boolean	isRemoving()
+Return true if this fragment is currently being removed from its activity.
+final boolean	isResumed()
+Return true if the fragment is in the resumed state.
+final boolean	isVisible()
+Return true if the fragment is currently visible to the user.
+
+	isVisible()
+Return true if the fragment is currently visible to the user.
+
+onActivityCreated(Bundle savedInstanceState)
+Called when the fragment's activity has been created and this fragment's view hierarchy instantiated.
+
+onActivityResult(int requestCode, int resultCode, Intent data)
+Receive the result from a previous call to startActivityForResult(Intent, int).
+
+onAttach(Activity activity)
+This method was deprecated in API level 23. Use onAttach(Context) instead.
+void	onAttach(Context context)
+Called when a fragment is first attached to its context.
+void	onAttachFragment(Fragment childFragment)
+Called when a fragment is attached as a child of this fragment.
+void	onConfigurationChanged(Configuration newConfig)
+Called by the system when the device configuration changes while your component is running.
+
+onCreate(Bundle savedInstanceState)
+Called to do initial creation of a fragment.
+
+onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+Called to have the fragment instantiate its user interface view.
+void	onDestroy()
+Called when the fragment is no longer in use.
+
+onDestroyView()
+Called when the view previously created by onCreateView(LayoutInflater, ViewGroup, Bundle) has been detached from the fragment.
+void	onDetach()
+Called when the fragment is no longer attached to its activity.
+void	onHiddenChanged(boolean hidden)
+Called when the hidden state (as returned by isHidden() of the fragment has changed.
+
+onInflate(Context context, AttributeSet attrs, Bundle savedInstanceState)
+Called when a fragment is being created as part of a view layout inflation, typically from setting the content view of an activity.
+
+onPause()
+Called when the Fragment is no longer resumed.
+
+
+requestPermissions(String[] permissions, int requestCode)
+Requests permissions to be granted to this application.
+
+onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+Callback for the result from requesting permissions.
+
+onResume()
+Called when the fragment is visible to the user and actively running.
+
+onStart()
+Called when the Fragment is visible to the user.
+void	onStop()
+Called when the Fragment is no longer started.
+void	onTrimMemory(int level)
+Called when the operating system has determined that it is a good time for a process to trim unneeded memory from its process.
+
+onViewCreated(View view, Bundle savedInstanceState)
+Called immediately after onCreateView(LayoutInflater, ViewGroup, Bundle) has returned, but before any saved state has been restored in to the view.
+
+onHiddenChanged(boolean hidden)
+Called when the hidden state (as returned by isHidden() of the fragment has changed.
+
+onLowMemory()
+This is called when the overall system is running low on memory, and actively running processes should trim their memory usage.
+
+onMultiWindowModeChanged(boolean isInMultiWindowMode)
+Called when the Fragment's activity changes from fullscreen mode to multi-window mode and visa-versa.
+
+
+setArguments(Bundle args)
+Supply the construction arguments for this fragment.
+
+setTargetFragment(Fragment fragment, int requestCode)
+Optional target for this fragment.
+
+setUserVisibleHint(boolean isVisibleToUser)
+Set a hint to the system about whether this fragment's UI is currently visible to the user.
+
+
+
+

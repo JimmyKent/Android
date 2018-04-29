@@ -1,0 +1,181 @@
+
+
+Activity
+ MainActivity.onCreate
+ TestFragment.onInflate / →☐
+ TestFragment.onAttach / →☐
+ MainActivity.onAttachFragment / →☐
+ TestFragment.onCreate / →☐
+ TestFragment.onCreateView / →☐
+ TestFragment.onViewCreated / →☐
+ MainActivity.onContentChanged / →☐
+ TestFragment.onActivityCreated / →☐
+ TestFragment.onViewStateRestored / →☐
+ MainActivity.onStart / →☐
+ TestFragment.onStart / →☐
+ MainActivity.onPostCreate / →☐
+ MainActivity.onResume / →☐
+ TestFragment.onResume / →☐
+ MainActivity.onPostResume / →☐
+ MainActivity.onAttachedToWindow / →☐
+ MainActivity.onWindowFocusChanged / →☐
+
+
+ MainActivity.onUserInteraction / →☐
+ MainActivity.onUserInteraction / →☐
+ TestFragment.onPause / →☐
+ MainActivity.onPause / →☐
+ MainActivity.onWindowFocusChanged / →☐
+ TestFragment.onStop / →☐
+ MainActivity.onStop / →☐
+ TestFragment.onDestroyView / →☐
+ TestFragment.onDestroy / →☐
+ TestFragment.onDetach / →☐
+ MainActivity.onDestroy / →☐
+ MainActivity.onDetachedFromWindow / →☐
+
+
+
+v4 FragmentActivity
+ MainFragmentActivity.onCreate / →☐
+ MainFragmentActivity.onCreate / ☐→
+ TestCompatFragment.onInflate / →☐
+ TestCompatFragment.onInflate / ☐→
+ TestCompatFragment.onAttach / →☐
+ TestCompatFragment.onAttach / ☐→
+ MainFragmentActivity.onAttachFragment / →☐
+ MainFragmentActivity.onAttachFragment / ☐→
+ TestCompatFragment.onCreate / →☐
+ TestCompatFragment.onCreate / ☐→
+ TestCompatFragment.onCreateView / →☐
+ TestCompatFragment.onCreateView / ☐→
+ TestCompatFragment.onViewCreated / →☐
+ TestCompatFragment.onViewCreated / ☐→
+ MainFragmentActivity.onContentChanged / →☐
+ MainFragmentActivity.onContentChanged / ☐→
+ MainFragmentActivity.onStart / →☐
+ TestCompatFragment.onActivityCreated / →☐
+ TestCompatFragment.onActivityCreated / ☐→
+ TestCompatFragment.onViewStateRestored / →☐
+ TestCompatFragment.onViewStateRestored / ☐→
+ TestCompatFragment.onStart / →☐
+ TestCompatFragment.onStart / ☐→
+ MainFragmentActivity.onStart / ☐→
+ MainFragmentActivity.onPostCreate / →☐
+ MainFragmentActivity.onPostCreate / ☐→
+ MainFragmentActivity.onResume / →☐
+ MainFragmentActivity.onResume / ☐→
+ MainFragmentActivity.onPostResume / →☐
+ MainFragmentActivity.onResumeFragments / →☐
+ TestCompatFragment.onResume / →☐
+ TestCompatFragment.onResume / ☐→
+ MainFragmentActivity.onResumeFragments / ☐→
+ MainFragmentActivity.onPostResume / ☐→
+ MainFragmentActivity.onAttachedToWindow / →☐
+ MainFragmentActivity.onAttachedToWindow / ☐→
+ MainFragmentActivity.onWindowFocusChanged / →☐
+ MainFragmentActivity.onWindowFocusChanged / ☐→
+
+
+ MainFragmentActivity.onUserInteraction / →☐
+ MainFragmentActivity.onUserInteraction / ☐→
+ MainFragmentActivity.onUserInteraction / →☐
+ MainFragmentActivity.onUserInteraction / ☐→
+ MainFragmentActivity.onPause / →☐
+ TestCompatFragment.onPause / →☐
+ TestCompatFragment.onPause / ☐→
+ MainFragmentActivity.onPause / ☐→
+ MainFragmentActivity.onWindowFocusChanged / →☐
+ MainFragmentActivity.onWindowFocusChanged / ☐→
+ MainFragmentActivity.onStop / →☐
+ TestCompatFragment.onStop / →☐
+ TestCompatFragment.onStop / ☐→
+ MainFragmentActivity.onStop / ☐→
+ MainFragmentActivity.onDestroy / →☐
+ TestCompatFragment.onDestroyView / →☐
+ TestCompatFragment.onDestroyView / ☐→
+ TestCompatFragment.onDestroy / →☐
+ TestCompatFragment.onDestroy / ☐→
+ TestCompatFragment.onDetach / →☐
+ TestCompatFragment.onDetach / ☐→
+ MainFragmentActivity.onDestroy / ☐→
+ MainFragmentActivity.onDetachedFromWindow / →☐
+ MainFragmentActivity.onDetachedFromWindow / ☐→
+
+
+
+AppCompatActivity
+AppCompatActivity
+  LifeAppCompatActivity.onCreate / →☐
+ LifeAppCompatActivity.onCreate / ☐→
+ TestFragment.onInflate / →☐
+ TestFragment.onInflate / ☐→
+ TestFragment.onAttach / →☐
+ TestFragment.onAttach / ☐→
+ TestFragment.onCreate / →☐
+ TestFragment.onCreate / ☐→
+ TestFragment.onCreateView / →☐
+ TestFragment.onCreateView / ☐→
+ TestFragment.onViewCreated / →☐
+ TestFragment.onViewCreated / ☐→
+ LifeAppCompatActivity.onContentChanged / →☐
+ LifeAppCompatActivity.onContentChanged / ☐→
+ TestFragment.onActivityCreated / →☐
+ TestFragment.onActivityCreated / ☐→
+ TestFragment.onViewStateRestored / →☐
+ TestFragment.onViewStateRestored / ☐→
+ LifeAppCompatActivity.onStart / →☐
+ LifeAppCompatActivity.onStart / ☐→
+ TestFragment.onStart / →☐
+ TestFragment.onStart / ☐→
+ LifeAppCompatActivity.onPostCreate / →☐
+ LifeAppCompatActivity.onPostCreate / ☐→
+ LifeAppCompatActivity.onResume / →☐
+ LifeAppCompatActivity.onResume / ☐→
+ TestFragment.onResume / →☐
+ TestFragment.onResume / ☐→
+ LifeAppCompatActivity.onPostResume / →☐
+ LifeAppCompatActivity.onResumeFragments / →☐
+ LifeAppCompatActivity.onResumeFragments / ☐→
+ LifeAppCompatActivity.onPostResume / ☐→
+ LifeAppCompatActivity.onAttachedToWindow / →☐
+ LifeAppCompatActivity.onAttachedToWindow / ☐→
+ LifeAppCompatActivity.onCreateOptionsMenu / →☐
+ LifeAppCompatActivity.onCreateOptionsMenu / ☐→
+ TestFragment.onCreateOptionsMenu / →☐
+ TestFragment.onCreateOptionsMenu / ☐→
+ LifeAppCompatActivity.onPrepareOptionsMenu / →☐
+ LifeAppCompatActivity.onPrepareOptionsMenu / ☐→
+ TestFragment.onPrepareOptionsMenu / →☐
+ TestFragment.onPrepareOptionsMenu / ☐→
+ LifeAppCompatActivity.onPrepareOptionsMenu / →☐
+ LifeAppCompatActivity.onPrepareOptionsMenu / ☐→
+ TestFragment.onPrepareOptionsMenu / →☐
+ TestFragment.onPrepareOptionsMenu / ☐→
+ LifeAppCompatActivity.onWindowFocusChanged / →☐
+ LifeAppCompatActivity.onWindowFocusChanged / ☐→
+ LifeAppCompatActivity.onUserInteraction / →☐
+ LifeAppCompatActivity.onUserInteraction / ☐→
+ LifeAppCompatActivity.onUserInteraction / →☐
+ LifeAppCompatActivity.onUserInteraction / ☐→
+ TestFragment.onPause / →☐
+ TestFragment.onPause / ☐→
+ LifeAppCompatActivity.onPause / →☐
+ LifeAppCompatActivity.onPause / ☐→
+ LifeAppCompatActivity.onWindowFocusChanged / →☐
+ LifeAppCompatActivity.onWindowFocusChanged / ☐→
+ TestFragment.onStop / →☐
+ TestFragment.onStop / ☐→
+ LifeAppCompatActivity.onStop / →☐
+ LifeAppCompatActivity.onStop / ☐→
+ TestFragment.onDestroyView / →☐
+ TestFragment.onDestroyView / ☐→
+ TestFragment.onDestroy / →☐
+ TestFragment.onDestroy / ☐→
+ TestFragment.onDetach / →☐
+ TestFragment.onDetach / ☐→
+ LifeAppCompatActivity.onDestroy / →☐
+ LifeAppCompatActivity.onDestroy / ☐→
+ LifeAppCompatActivity.onDetachedFromWindow / →☐
+ LifeAppCompatActivity.onDetachedFromWindow / ☐→
+
